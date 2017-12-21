@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using ControllersAndActions.Infrastructure;
 
 namespace ControllersAndActions.Controllers
 {
@@ -6,6 +7,7 @@ namespace ControllersAndActions.Controllers
     {
         public ViewResult Index() => View("SimpleForm");
 
-        public ViewResult ReceiveForm(string name, string city) => View("Result", $"{name} lives in {city}");        
+        public IActionResult ReceiveForm(string name, string city) => 
+            new CustomHtmlResult { Content = $"{name} lives in {city}" };
     }
 }
