@@ -7,7 +7,6 @@ namespace ControllersAndActions.Controllers
     {
         public ViewResult Index() => View("SimpleForm");
 
-        public IActionResult ReceiveForm(string name, string city) => 
-            new CustomHtmlResult { Content = $"{name} lives in {city}" };
+        public ViewResult ReceiveForm(string name, string city) => View("Result", $"{name} lives in {city}");
     }
 }
