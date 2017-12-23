@@ -10,17 +10,41 @@ namespace ControllersAndActions.Tests
     public class ActionTests
     {
         [Fact]
-        public void ViewSelected()
+        public void HomeController_ReceiveForm_Redirects()
         {
             // Arrange
+            var tempHttpContext = new Mock<HttpContext>();
+            var tempDataProvider = new Mock<SessionStateTempDataProvider>();
+            var tempDataMock = new Mock<TempDataDictionary>(tempHttpContext.Object, tempDataProvider.Object);
             HomeController controller = new HomeController(); 
+            controller.TempData = tempDataMock.Object;
 
             // Act
-            ViewResult result = controller.ReceiveForm("Adam", "London");
+            RedirectToActionResult result = controller.ReceiveForm("Adam", "London");
 
             // Assert
-            Assert.Equal("Result", result.ViewName);
+            Assert.Equal("Data", result.ActionName);
         }
+
+        public void HomeController_ReceiveForm_PopulatesTempData()
+        {
+            // Arrange
+            var tempHttpContext = new Mock<HttpContext>();
+            var tempDataProvider = new Mock<SessionStateTempDataProvider>();
+            var tempDataMock = new Mock<TempDataDictionary>(tempHttpContext.Object, tempDataProvider.Object);
+            HomeController controller = new HomeController(); 
+            controller.TempData = tempDataMock.Object;
+
+            // Act
+            RedirectToActionResult result = controller.ReceiveForm("Adam", "London");
+
+            // Assert
+            Assert.True(controller.TempData.ContainsKey("name"));
+            Assert.Equal("Adam", controller.TempData["name"]);
+            Assert.True(controller.TempData.ContainsKey("city"));
+            Assert.Equal("London", controller.TempData["city"]);
+        }
+
 
         [Fact]
         public void ModelObjectType()
