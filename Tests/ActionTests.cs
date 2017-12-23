@@ -41,13 +41,11 @@ namespace ControllersAndActions.Tests
             ExampleController controller = new ExampleController();
 
             // Act
-            RedirectToRouteResult result = controller.Redirect();
+            RedirectToActionResult result = controller.Redirect();
 
             // Assert
             Assert.False(result.Permanent);
-            Assert.Equal("Example", result.RouteValues["controller"]);
-            Assert.Equal("Index", result.RouteValues["action"]);
-            Assert.Equal("MyID", result.RouteValues["ID"]);            
+            Assert.Equal("Index", result.ActionName);          
         }
     }
 }

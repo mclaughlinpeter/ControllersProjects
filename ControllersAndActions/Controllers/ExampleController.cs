@@ -14,10 +14,6 @@ namespace ControllersAndActions.Controllers
 
         public ViewResult Result() => View((object)"Hello, world");
 
-        public RedirectToRouteResult Redirect() => RedirectToRoute(new {
-            controller = "Example",
-            action = "Index",
-            ID = "MyID"
-        });
+        public RedirectToActionResult Redirect() => RedirectToAction(nameof(Index));
     }
 }
