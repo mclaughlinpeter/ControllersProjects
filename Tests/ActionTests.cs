@@ -75,19 +75,5 @@ namespace ControllersAndActions.Tests
             Assert.False(result.Permanent);
             Assert.Equal("Index", result.ActionName);          
         }
-
-        [Fact]
-        public void Test_Build_Process()
-        {
-            // Arrange
-            ExampleController controller = new ExampleController();
-
-            // Act
-            RedirectToActionResult result = controller.Redirect();
-
-            // Assert
-            Assert.False(result.Permanent);
-            Assert.Equal("ActionMethod", result.ActionName);          
-        }
     }
 }
