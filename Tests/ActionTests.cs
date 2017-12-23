@@ -26,6 +26,7 @@ namespace ControllersAndActions.Tests
             Assert.Equal("Data", result.ActionName);
         }
 
+        [Fact]
         public void HomeController_ReceiveForm_PopulatesTempData()
         {
             // Arrange
