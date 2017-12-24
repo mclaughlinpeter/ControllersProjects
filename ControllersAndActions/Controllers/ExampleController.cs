@@ -19,5 +19,7 @@ namespace ControllersAndActions.Controllers
         public JsonResult IndexJson() => Json(new[] { "Alice", "Bob", "Joe" });
 
         public ContentResult IndexContent() => Content("[\"Alice\",\"Bob\",\"Joe\"]", "application/json");
+
+        public VirtualFileResult IndexFile() => File("/lib/bootstrap/dist/css/bootstrap.css", "text/css");
     }
 }
