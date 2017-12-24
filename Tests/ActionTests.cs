@@ -75,5 +75,18 @@ namespace ControllersAndActions.Tests
             Assert.False(result.Permanent);
             Assert.Equal("Index", result.ActionName);          
         }
+
+        [Fact]
+        public void JsonActionMethod()
+        {
+            // Arrange
+            ExampleController controller = new ExampleController();
+
+            // Act
+            JsonResult result = controller.IndexJson();
+
+            // Assert
+            Assert.Equal(new[] { "Alice", "Bob", "Joe" }, result.Value);
+        }
     }
 }

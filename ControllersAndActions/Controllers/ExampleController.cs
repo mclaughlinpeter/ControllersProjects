@@ -15,5 +15,7 @@ namespace ControllersAndActions.Controllers
         public ViewResult Result() => View((object)"Hello, world");
 
         public RedirectToActionResult Redirect() => RedirectToAction(nameof(Index));
+
+        public JsonResult IndexJson() => Json(new[] { "Alice", "Bob", "Joe" });
     }
 }
