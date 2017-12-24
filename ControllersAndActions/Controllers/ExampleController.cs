@@ -17,5 +17,7 @@ namespace ControllersAndActions.Controllers
         public RedirectToActionResult Redirect() => RedirectToAction(nameof(Index));
 
         public JsonResult IndexJson() => Json(new[] { "Alice", "Bob", "Joe" });
+
+        public ContentResult IndexContent() => Content("[\"Alice\",\"Bob\",\"Joe\"]", "application/json");
     }
 }
