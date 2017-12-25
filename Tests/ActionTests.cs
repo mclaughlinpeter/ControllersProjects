@@ -88,5 +88,18 @@ namespace ControllersAndActions.Tests
             // Assert
             Assert.Equal(new[] { "Alice", "Bob", "Joe" }, result.Value);
         }
+
+        [Fact]
+        public void NotFoundActionMethod()
+        {
+            // Arrange
+            ExampleController controller = new ExampleController();
+
+            // Act
+            StatusCodeResult result = controller.IndexStatusCode();
+
+            // Assert
+            Assert.Equal(404, result.StatusCode);
+        }
     }
 }

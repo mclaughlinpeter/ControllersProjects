@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
 using System;
 
 namespace ControllersAndActions.Controllers
@@ -21,5 +22,7 @@ namespace ControllersAndActions.Controllers
         public ContentResult IndexContent() => Content("[\"Alice\",\"Bob\",\"Joe\"]", "application/json");
 
         public VirtualFileResult IndexFile() => File("/lib/bootstrap/dist/css/bootstrap.css", "text/css");
+
+        public StatusCodeResult IndexStatusCode() => StatusCode(StatusCodes.Status404NotFound);
     }
 }
